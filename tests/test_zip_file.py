@@ -8,8 +8,7 @@ from tests.conftest import archive
 def test_csv():
     with zipfile.ZipFile(archive, 'r') as zip_file:
         with zip_file.open('annual.csv') as csv_file:
-            content = csv_file.read().decode(
-                'utf-8-sig')
+            content = csv_file.read().decode('utf-8-sig')
             csvreader = list(csv.reader(content.splitlines()))
         assert csvreader[27][4] == 'Fixed tangible assets'
 
